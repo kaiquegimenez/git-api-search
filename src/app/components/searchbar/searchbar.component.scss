@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.searchbar {
+  margin-top: 4px;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  line-height: 36px;
+  box-sizing: border-box;
+  background-color: white;
+  padding: 0px 6px;
+  border-radius: 4px;
+  border: 1px solid #80808057;
+  overflow: hidden;
+
+  &:hover {
+    border: 2px solid black;
+  }
+
+  mat-icon {
+    color: black;
+  }
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: grey;
+  font-weight: 500;
+  margin-left: 10px;
+  transition: 0.3s;
+  opacity: 1;
+  
+  &--animate {
+    transform: translate(-50%);
+    opacity: 0;
+  }
+}
+
+.search-icon-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40px);
+  opacity: 1;
+  transition: 0.3s;
+  
+  &--animate {
+    opacity: 0;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: -50px;
+  opacity: 0;
+  transition: 0.3s;
+
+  &--animate {
+    transform: translateX(50px);
+    opacity: 1;
+  }
+}
+
+.close-icon {
+  position: absolute;
+  right: -50px;
+  opacity: 0;
+  color: grey !important;
+  transition: 0.3s;
+
+  &--animate {
+    transform: translateX(-50px);
+    opacity: 1;
+  }
+
+  &:hover {
+    color: black !important;
+    transform: translateX(-50px);
+  }
+}
+
+.show {
+  opacity: 1;
+  z-index: 10;
+  width: 100%;
+}
+
+.input-container {
+  position: relative;
+  min-height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: 0;
+  outline: none;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+  margin: 0px 36px;
+  opacity: 0;
+  z-index: -10;
+  display: flex;
+}
+
+label {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-size: 1rem;
+  cursor: text;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+input,
+label {
+  height: 36px;
+}
+
+
+input:valid + label,
+input:focus + label {
+  font-size: 0.8rem;
+  top: -30px;
+  // pointer-events: none;
+}
+
+.spacer {
+  margin: 0px 10px;
+}
+
+#send {
+  margin-right: 10px;
+}

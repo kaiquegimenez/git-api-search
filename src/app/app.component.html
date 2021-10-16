@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="header">
+    <div class="type-search">
+      <mat-form-field appearance="outline">
+        <mat-label>Pesquisar por</mat-label>
+        <mat-select [(ngModel)]="typeSearch">
+          <mat-option value="name">Nome</mat-option>
+          <mat-option value="project">Projeto</mat-option>
+          <mat-option value="both">Ambos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="search-bar">
+      <app-searchbar></app-searchbar>
+    </div>
+    <app-theme></app-theme>
+    <div>
+    </div>
+  </div>
+  <div class="user-list" *ngIf="resultList.length > 0">
+    <git-card [items]="resultList"></git-card>
+  </div>
+</div>

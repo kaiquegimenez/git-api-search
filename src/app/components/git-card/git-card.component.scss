@@ -1,0 +1,77 @@
+.person {
+  width:530px;
+  height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 20px;
+  color: #616b74;
+
+  &__image {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+
+  &__informations {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  &__name {
+    display: flex;
+    font-size: 21px;
+    text-transform: uppercase;
+    color: #FA6800;
+  }
+
+  &__following {
+    font-size: 15px;
+  }
+
+  &__close-icon {
+    width: 17px;
+    height: 17px;
+    font-size: 17px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: #FA6800;
+    color: white;
+    .person__name {
+      color: white;
+    }
+    .person__chip {
+      background-color: white;
+      color: #3847A0;
+      font-weight: bold;
+    }
+  }
+  &__chip {
+    background-color: #3847A0;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    padding: 7px 12px;
+    margin: 2px 5px;
+    border-radius: 16px;
+    align-items: center;
+    cursor: default;
+    min-height: 15px;
+    font-size: 12px;
+    height: 1px;
+    color: white;
+  }
+}
+
+.line {
+  margin: 0px;
+}
+
+.star {
+  margin-left: 10px;
+}
+

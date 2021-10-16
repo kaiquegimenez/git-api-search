@@ -1,0 +1,30 @@
+<div *ngFor="let item of items; let i = index">
+  <div class="person">
+    <img class="person__image" [src]="item.avatar_url ? item.avatar_url : item.owner.avatar_url" alt="foto">
+    <div class="person__informations">
+      <div class="person__name">
+        <span>{{item.name}}</span>
+        <span>{{item.login}}</span>
+      </div>
+      <div class="person__following">
+        <span>Seguidores: {{item.following || item.following === 0  ? item.following : 'Não informado'}}</span>
+      </div>
+      <div>
+        <span>{{item.language ? item.language : 'Tecnologia não informada'}}</span>
+        <app-star class="star"></app-star>
+      </div>
+      <div>
+        <div class="person__chip">
+          JavaScript
+          <mat-icon (click)="teste()" class="person__close-icon">cancel</mat-icon>
+        </div>
+        <div class="person__chip">JavaScript</div>
+        <div class="person__chip">JavaScript</div>
+        <div class="person__chip">JavaScript</div>
+        <div class="person__chip">JavaScript</div>
+        <div class="person__chip">JavaScript</div>
+      </div>
+    </div>
+  </div>
+  <hr *ngIf="items.length - 1 !== i" class="line">
+</div>

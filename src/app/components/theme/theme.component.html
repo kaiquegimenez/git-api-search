@@ -1,0 +1,11 @@
+<span mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>settings</mat-icon>
+</span>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item class="button-select-theme" *ngFor="let themeOption of themeOptions" (click)="changeTheme(themeOption)">
+    {{ themeOption.name }}
+    <mat-icon class="smallest-icon material-icons" *ngIf="themeOption.id === selectedTheme">
+      radio_button_checked
+    </mat-icon>
+  </button>
+</mat-menu>

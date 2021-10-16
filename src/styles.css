@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+/*=== Import icon fonts (http://weloveiconfonts.com) ===*/
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* entypo */
+[class*="fontawesome-"]:before{
+  font-family: 'fontawesome', sans-serif;
+}
+html, body { height: 100%; font-family:"Raleway",Helvetica;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
