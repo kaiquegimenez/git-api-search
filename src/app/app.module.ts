@@ -12,6 +12,7 @@ import { GitCardComponent } from './components/git-card/git-card.component';
 import { StarComponent } from './components/star/star.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ThemeComponent } from './components/theme/theme.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ThemeComponent } from './components/theme/theme.component';
     SearchbarComponent,
     GitCardComponent,
     StarComponent,
-    ThemeComponent
+    ThemeComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,

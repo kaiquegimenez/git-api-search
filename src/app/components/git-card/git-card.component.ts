@@ -12,8 +12,5 @@ export class GitCardComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.items)
   }
-  teste(){
-    console.log("oi")
-  }
 
 }

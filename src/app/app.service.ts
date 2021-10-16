@@ -6,7 +6,7 @@ const API = 'https://api.github.com/';
   providedIn: 'root'
 })
 export class AppService {
-  headers = new HttpHeaders().append('Authorization', "Bearer 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");
+  headers = new HttpHeaders().append('Authorization', "Bearer  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");
   constructor(private http: HttpClient) { }
   
   importSimpleItems(formData: FormData) {
