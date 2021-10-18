@@ -62,8 +62,8 @@
 .list {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  height: 50vh;
+  height: 250px;
+  overflow-y: scroll;
 
   &__header {
     display: flex;

@@ -6,11 +6,11 @@ const API = 'https://api.github.com/';
   providedIn: 'root'
 })
 export class DialogService {
-  headers = new HttpHeaders().append('Authorization', "Bearer  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");
+  headers = new HttpHeaders().append('Authorization', "Bearer  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");
   constructor(private http: HttpClient) { }
 
-  getProjects(urlProjects: string) {
-    return this.http.get(urlProjects, { headers:this.headers});
+  getProjects(urlProjects: string, page: number) {
+    return this.http.get(urlProjects + `?page=${page}`, { headers:this.headers});
   }
 
 }

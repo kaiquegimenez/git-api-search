@@ -13,6 +13,8 @@ import * as moment from 'moment';
 export class DialogComponent implements OnInit {
   list: Person;
   repos = [];
+  page = 0;
+  urlProjects = '';
   constructor(
     private dialogService: DialogService,
     public dialogRef: MatDialogRef<DialogComponent>,
@@ -23,15 +25,25 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.list);
-    let urlProjects = ""
     if(this.list.owner) {
-      urlProjects = this.list.owner.repos_url;
+      this.urlProjects = this.list.owner.repos_url;
     } else {
-      urlProjects = this.list.repos_url;
+      this.urlProjects = this.list.repos_url;
     }
-    this.dialogService.getProjects(urlProjects).subscribe((res: any) => {
+    this.getProjects()
+  }
+
+  getProjects() {
+    debugger
+    this.page++;
+    this.dialogService.getProjects(this.urlProjects, this.page).subscribe((res: any) => {
       console.log('Aqui', res);
-      this.repos = res;
+      debugger
+      if(this.page === 1) {
+        this.repos = res;
+      } else {
+        this.repos = this.repos.concat(res);
+      }
     }, err => {
       console.log(err);
     })
@@ -43,6 +55,10 @@ export class DialogComponent implements OnInit {
 
   openProject(repo) {
     window.open(repo.html_url, '_blank')
+  }
+
+  onScroll() {
+    this.getProjects()
   }
 
 }

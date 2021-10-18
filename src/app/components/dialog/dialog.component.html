@@ -15,8 +15,9 @@
       </div>
     </div>
   </div>
-  <h2 class="title">Projetos</h2>
-  <div class="list">
+  <h2 *ngIf="repos.length > 0" class="title">Projetos</h2>
+  <h2 *ngIf="repos.length === 0" class="title">Usuário não possui repositório!</h2>
+  <div *ngIf="repos.length > 0" class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false" class="list">
     <div class="list__header">
       <span class="list__name">Nome</span>
       <span class="list__created">Criado em</span>
