@@ -4,6 +4,7 @@ import { AppService } from './app.service'
 import { SearchbarService } from '../app/components/searchbar/searchbar.service'
 import { Theme } from './interfaces/theme.interface';
 import { ThemeService } from './components/theme/theme.service';
+import { Person } from './interfaces/person.interface'
 
 @Component({
   selector: 'app-root',
@@ -53,7 +54,7 @@ export class AppComponent implements OnInit{
 
   getUsers(userName) {
     if(userName === "") return
-    this.appService.getUsers(userName).subscribe((res: any) => {
+    this.appService.getUsers(userName).subscribe((res: Person) => {
       this.resultList = this.resultList.concat(res.items);
       this.resultList.forEach((item, index) => {
         this.getFollowers(item, index);
@@ -90,7 +91,7 @@ export class AppComponent implements OnInit{
 
   getProject(projectName) {
     if(projectName === "") return
-    this.appService.getProject(projectName).subscribe((res: any) => {
+    this.appService.getProject(projectName).subscribe((res: Person) => {
       this.resultList = this.resultList.concat(res.items);
       this.resultList.forEach((item, index) => {
         if(item.owner) {

@@ -12,7 +12,9 @@
       </div>
       <div class="person__like-languages">
         <span class="person__languages">{{list.language ? list.language : 'Tecnologia não informada'}}</span>
+        <app-star class="star"></app-star>
       </div>
+      <app-tags></app-tags>
     </div>
   </div>
   <h2 *ngIf="repos.length > 0" class="title">Projetos</h2>
@@ -34,7 +36,7 @@
     >
       <span class="list__name">{{repo.name}}</span>
       <span class="list__created">{{ convertData(repo.created_at) }}</span>
-      <span class="list__size">{{repo.size}}</span>
+      <span class="list__size">{{repo.size}} KB</span>
       <span class="list__forks">{{repo.forks_count}}</span>
       <span class="list__lenguage">{{repo.language ? repo.language : 'Linguagem não informada'}}</span>
     </div>

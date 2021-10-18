@@ -6,6 +6,7 @@ import * as moment from 'moment';
 import { Theme } from 'src/app/interfaces/theme.interface';
 import { Observable, Subscription } from 'rxjs';
 import { ThemeService } from '../theme/theme.service';
+import { Repository } from '../../interfaces/repository.interface'
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ThemeService } from '../theme/theme.service';
 })
 export class DialogComponent implements OnInit {
   list: Person;
-  repos = [];
+  repos: Repository [] = [];
   page = 0;
   urlProjects = '';
   theme$: Observable<Theme>;
@@ -53,7 +54,7 @@ export class DialogComponent implements OnInit {
 
   getProjects() {
     this.page++;
-    this.dialogService.getProjects(this.urlProjects, this.page).subscribe((res: any) => {
+    this.dialogService.getProjects(this.urlProjects, this.page).subscribe((res: Repository []) => {
       console.log('Aqui', res);
       if(this.page === 1) {
         this.repos = res;

@@ -34,7 +34,6 @@ export class GitCardComponent implements OnInit {
     const dialogRef = this.matDialog.open(DialogComponent, {
       data: item,
       width: '90vw',
-      panelClass: 'backdropBackground'
     });
   }
 }

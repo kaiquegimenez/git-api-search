@@ -6,7 +6,7 @@ const API = 'https://api.github.com/';
   providedIn: 'root'
 })
 export class AppService {
-  headers = new HttpHeaders().append('Authorization', "Bearer  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");
+  headers = new HttpHeaders().append('Authorization', "Bearer  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");
   constructor(private http: HttpClient) { }
 
   getUsers(userName: string) {

@@ -6,4 +6,5 @@ export interface Person {
   language?: string,
   owner?: Person,
   repos_url: string,
+  items?: object
 }

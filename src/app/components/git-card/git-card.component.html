@@ -13,7 +13,7 @@
         <span class="person__languages" (click)="openDialog(item)">{{item.language ? item.language : 'Tecnologia não informada'}}</span>
         <app-star class="star"></app-star>
       </div>
-      <app-tags [color]="color" [background]="background"></app-tags>
+      <app-tags></app-tags>
     </div>
   </div>
   <hr *ngIf="items.length - 1 !== i" class="line">
