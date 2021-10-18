@@ -1,4 +1,4 @@
-<div *ngFor="let tag of tags; let i = index" class="chip">
+<div [ngClass]="selectedTheme === 'dark' ? 'chip--dark' : 'chip--light'" *ngFor="let tag of tags; let i = index" class="chip">
   {{tag}}
   <mat-icon (click)="deleteTag(i)" class="close-icon">cancel</mat-icon>
 </div>

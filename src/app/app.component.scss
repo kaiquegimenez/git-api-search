@@ -10,30 +10,30 @@
 }
 
 .user-list {
-  display: flex;
-  justify-content: center;
   align-items: center;
   background: white;
-  width:550px;
-  position:relative;
-  opacity:.8;
-  margin: auto;
   /*border-radius*/
-  -webkit-border-radius:8px;
-     -moz-border-radius:8px;
-          border-radius:8px;
-  border-bottom:1px solid #cac6c4;
-  border-bottom-left-radius:15px;
-  border-bottom-right-radius:15px;
+    border-bottom:1px solid #cac6c4;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  opacity:.8;
+  position:relative;
   /*box-shadow*/
-  -webkit-box-shadow:0 5px 25px rgba(0,0,0,.15);
-     -moz-box-shadow:0 5px 25px rgba(0,0,0,.15);
-          box-shadow:0 5px 25px rgba(0,0,0,.15);
+    -webkit-box-shadow:0 5px 25px rgba(0,0,0,.15);
+    -moz-box-shadow:0 5px 25px rgba(0,0,0,.15);
+    box-shadow:0 5px 25px rgba(0,0,0,.15);
+  width:550px;
 }
 
 .type-search {
-  width: 20%;
   min-width: 225px;
+  width: 20%;
 }
 
 .search-bar {
@@ -42,11 +42,12 @@
 
 .set-themes {
   width: 10%;
+  margin-top: 14px;
+  margin-left: 20px;
 }
 
-
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
-  margin: 0;
   border: 2px 0;
+  margin: 0;
   padding: 0.5em 0 0.5em;
 }

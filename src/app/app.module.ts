@@ -13,6 +13,9 @@ import { StarComponent } from './components/star/star.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { ThemeComponent } from './components/theme/theme.component';
 import { TagsComponent } from './components/tags/tags.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { TagsComponent } from './components/tags/tags.component';
     GitCardComponent,
     StarComponent,
     ThemeComponent,
-    TagsComponent
+    TagsComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { TagsComponent } from './components/tags/tags.component';
     ReactiveFormsModule,
     MatIconModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

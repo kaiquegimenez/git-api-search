@@ -1,19 +1,19 @@
 <div *ngFor="let item of items; let i = index">
   <div class="person">
-    <img class="person__image" [src]="item.avatar_url ? item.avatar_url : item.owner.avatar_url" alt="foto">
+    <img (click)="openDialog(item)" class="person__image" [src]="item.avatar_url ? item.avatar_url : item.owner.avatar_url" alt="foto">
     <div class="person__informations">
-      <div class="person__name">
+      <div (click)="openDialog(item)" [ngClass]="selectedTheme === 'dark' ? 'person__name--dark' : 'person__name--light'" class="person__name">
         <span>{{item.name}}</span>
         <span>{{item.login}}</span>
       </div>
-      <div class="person__following">
-        <span>Seguidores: {{item.following || item.following === 0  ? item.following : 'Não informado'}}</span>
+      <div (click)="openDialog(item)" class="person__following">
+        <span>Seguidores: {{item.fallowers || item.fallowers === 0  ? item.fallowers : 'Não informado'}}</span>
       </div>
-      <div>
-        <span>{{item.language ? item.language : 'Tecnologia não informada'}}</span>
+      <div class="person__like-languages">
+        <span class="person__languages" (click)="openDialog(item)">{{item.language ? item.language : 'Tecnologia não informada'}}</span>
         <app-star class="star"></app-star>
       </div>
-      <app-tags></app-tags>
+      <app-tags [color]="color" [background]="background"></app-tags>
     </div>
   </div>
   <hr *ngIf="items.length - 1 !== i" class="line">

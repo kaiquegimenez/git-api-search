@@ -1,5 +1,12 @@
 .button-settings {
   cursor: pointer;
+  &--dark {
+    color: white;
+  }
+
+  &--light {
+    color: black;
+  }
 }
 .theme {
   padding-bottom: 18px;
@@ -7,18 +14,18 @@
 }
 
 .button-select-theme {
-  display: flex;
   align-items: center;
   color: black;
-  width: 130px;
+  display: flex;
   min-width: 130px;
   text-align: left;
+  width: 130px;
 }
 
 .smallest-icon {
   color: black;
-  height: 1em;
-  width: 1em;
   font-size: 1em;
+  height: 1em;
   margin-left: 4px;
+  width: 1em;
 }

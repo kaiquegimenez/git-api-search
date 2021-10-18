@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AppService } from './app.service'
 import { SearchbarService } from '../app/components/searchbar/searchbar.service'
@@ -18,8 +18,11 @@ export class AppComponent implements OnInit{
 
   constructor(
     private appService: AppService,
-    private searchbarService: SearchbarService
-  ) {}
+    private searchbarService: SearchbarService,
+    private renderer: Renderer2
+  ) {
+    this.renderer.addClass(document.body, 'body');
+  }
   ngOnInit() {
     this.query$ = this.searchbarService.getQuery();
     this.querySubscription = this.query$.subscribe((value) => {
@@ -38,16 +41,38 @@ export class AppComponent implements OnInit{
     });
   }
 
-  async getUsers(userName) {
+  getUsers(userName) {
     if(userName === "") return
-    await this.appService.getUsers(userName).subscribe((res: any) => {
-      res.items.forEach(item => {
-        this.appService.getInfoUsers(item.url).subscribe((res: any) => {
-          this.resultList = this.resultList.concat(res);
-        }, err => {
-          console.log(err);
-        })
+    this.appService.getUsers(userName).subscribe((res: any) => {
+      this.resultList = this.resultList.concat(res.items);
+      this.resultList.forEach((item, index) => {
+        this.getFollowers(item, index);
+        this.getLanguages(item, index);
       });
+    }, err => {
+      console.log(err);
+    })
+  }
+
+  getFollowers(item, index) {
+    this.appService.getFallowers(item.followers_url).subscribe((res: any) => {
+      const fallowers = {'fallowers': res.length}
+      Object.assign(this.resultList[index], fallowers);
+    }, err => {
+      console.log(err);
+    })
+  }
+
+  getLanguages(item, index) {
+    this.appService.getFallowers(item.repos_url).subscribe((res: any) => {
+      let languages = []
+      res.forEach(repos => {
+        if(repos.language) {
+          languages.push(repos.language);
+        }
+      });
+      languages = [...new Set(languages)];
+      Object.assign(this.resultList[index], {'language': languages.toString()});
     }, err => {
       console.log(err);
     })
@@ -57,7 +82,11 @@ export class AppComponent implements OnInit{
     if(projectName === "") return
     this.appService.getProject(projectName).subscribe((res: any) => {
       this.resultList = this.resultList.concat(res.items);
-      console.log(this.resultList);
+      this.resultList.forEach((item, index) => {
+        if(item.owner) {
+          this.getFollowers(item.owner, index)
+        }
+      });
     }, err => {
       console.log(err);
     })

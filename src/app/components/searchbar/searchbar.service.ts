@@ -5,11 +5,6 @@ import { BehaviorSubject } from 'rxjs';
 export class SearchbarService {
     showSearchbar = false;
     query = new BehaviorSubject<string>(null);
-    
-
-    cleanQuery() {
-        this.query.next(null);
-    }
 
     getQuery() {
         return this.query.asObservable();

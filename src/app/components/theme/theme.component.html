@@ -1,4 +1,4 @@
-<span class="button-settings" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+<span [ngClass]="selectedTheme === 'dark' ? 'button-settings--dark' : 'button-settings--light'" class="button-settings" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
   <mat-icon>settings</mat-icon>
 </span>
 <mat-menu #menu="matMenu">
