@@ -9,16 +9,31 @@
   top: -5px;
   right: -5px;
   cursor: pointer;
+
+  &--dark {
+    color: white;
+  }
+
+  &--light {
+    color: #616b74;
+  }
 }
 
 .person {
   align-items: center;
-  color: #616b74;
   display: flex;
   height: 150px;
   justify-content: flex-start;
   padding-left: 20px;
   width:530px;
+
+  &--dark {
+    color:white;
+  }
+  
+  &--light {
+    color: #616b74;
+  }
   
   &__image {
     border-radius: 50%;
@@ -76,7 +91,15 @@
     display: flex;
     min-height: 50px;
     align-items: center;
-    color: #616b74;
+    
+    &--dark {
+      color: white;
+    }
+
+    &--light {
+      color: #616b74;
+    }
+
     &:hover {
       color: white;
       background: #FA6800;

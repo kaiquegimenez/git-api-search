@@ -7,7 +7,6 @@
   width:530px;
   
   &--dark {
-    background: #FA6800;
     color: white;
   }
 
@@ -75,5 +74,11 @@
 
 .star {
   margin-left: 10px;
+}
+
+.backdropBackground {
+  mat-dialog-container {
+    background-color: #616b74;
+  }
 }
 

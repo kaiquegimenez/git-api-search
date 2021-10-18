@@ -6,11 +6,11 @@ const API = 'https://api.github.com/';
   providedIn: 'root'
 })
 export class AppService {
-  headers = new HttpHeaders().append('Authorization', "Bearer  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");
+  headers = new HttpHeaders().append('Authorization', "Bearer  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");
   constructor(private http: HttpClient) { }
 
   getUsers(userName: string) {
-    const url = API + `search/users?q=${userName}&per_page=7`;
+    const url = API + `search/users?q=${userName}&per_page=10`;
     return this.http.get(url, { headers: this.headers});
   }
 
@@ -19,7 +19,7 @@ export class AppService {
   }
 
   getProject(projectName: string) {
-    const url = API + `search/repositories?q=${projectName}&per_page=7`;
+    const url = API + `search/repositories?q=${projectName}&per_page=10`;
     return this.http.get(url, { headers:this.headers});
   }
 

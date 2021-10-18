@@ -1,5 +1,5 @@
 <div *ngFor="let item of items; let i = index">
-  <div class="person">
+  <div class="person" [ngClass]="selectedTheme === 'dark' ? 'person--dark' : 'person--light'">
     <img (click)="openDialog(item)" class="person__image" [src]="item.avatar_url ? item.avatar_url : item.owner.avatar_url" alt="foto">
     <div class="person__informations">
       <div (click)="openDialog(item)" [ngClass]="selectedTheme === 'dark' ? 'person__name--dark' : 'person__name--light'" class="person__name">

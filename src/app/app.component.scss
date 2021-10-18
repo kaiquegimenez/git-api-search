@@ -11,7 +11,6 @@
 
 .user-list {
   align-items: center;
-  background: white;
   /*border-radius*/
     border-bottom:1px solid #cac6c4;
     border-bottom-left-radius:15px;
@@ -22,13 +21,20 @@
   display: flex;
   justify-content: center;
   margin: auto;
-  opacity:.8;
   position:relative;
   /*box-shadow*/
     -webkit-box-shadow:0 5px 25px rgba(0,0,0,.15);
     -moz-box-shadow:0 5px 25px rgba(0,0,0,.15);
     box-shadow:0 5px 25px rgba(0,0,0,.15);
   width:550px;
+
+  &--dark {
+    background: #FA6800;
+  }
+
+  &--light {
+    background: white;
+  }
 }
 
 .type-search {

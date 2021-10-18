@@ -1,6 +1,6 @@
 <div class="container">
-  <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
-  <div class="person">
+  <mat-icon [ngClass]="selectedTheme === 'dark' ? 'close-icon--dark' : 'close-icon--light'" class="close-icon" mat-dialog-close>close</mat-icon>
+  <div class="person" [ngClass]="selectedTheme === 'dark' ? 'person--dark' : 'person--light'">
     <img class="person__image" [src]="list.avatar_url ? list.avatar_url : list.owner.avatar_url" alt="foto">
     <div class="person__informations">
       <div class="person__name">
@@ -17,7 +17,7 @@
   </div>
   <h2 *ngIf="repos.length > 0" class="title">Projetos</h2>
   <h2 *ngIf="repos.length === 0" class="title">Usuário não possui repositório!</h2>
-  <div *ngIf="repos.length > 0" class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false" class="list">
+  <div *ngIf="repos.length > 0" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false" class="list">
     <div class="list__header">
       <span class="list__name">Nome</span>
       <span class="list__created">Criado em</span>
@@ -25,7 +25,13 @@
       <span class="list__forks">Forks</span>
       <span class="list__lenguage">Linguagem</span>
     </div>
-    <div matTooltip="Clique para abrir o projeto" class="list__body" (click)="openProject(repo)" *ngFor="let repo of repos">
+    <div
+      [ngClass]="selectedTheme === 'dark' ? 'list__body--dark' : 'list__body--light'"
+      matTooltip="Clique para abrir o projeto" 
+      class="list__body" 
+      (click)="openProject(repo)" 
+      *ngFor="let repo of repos"
+    >
       <span class="list__name">{{repo.name}}</span>
       <span class="list__created">{{ convertData(repo.created_at) }}</span>
       <span class="list__size">{{repo.size}}</span>

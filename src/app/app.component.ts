@@ -1,7 +1,9 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AppService } from './app.service'
 import { SearchbarService } from '../app/components/searchbar/searchbar.service'
+import { Theme } from './interfaces/theme.interface';
+import { ThemeService } from './components/theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +15,17 @@ export class AppComponent implements OnInit{
   title = 'git-search';
   query$: Observable<string>;
   querySubscription: Subscription;
+  theme$: Observable<Theme>;
+  themeSubscription: Subscription;
+  selectedTheme: string;
   typeSearch = 'name';
   resultList = [];
 
   constructor(
     private appService: AppService,
     private searchbarService: SearchbarService,
-    private renderer: Renderer2
+    private themeService: ThemeService
   ) {
-    this.renderer.addClass(document.body, 'body');
   }
   ngOnInit() {
     this.query$ = this.searchbarService.getQuery();
@@ -37,6 +41,12 @@ export class AppComponent implements OnInit{
           this.getProject(value);
           this.getUsers(value);
         }
+      }
+    });
+    this.theme$ = this.themeService.getTheme();
+    this.themeSubscription = this.theme$.subscribe((value) => {
+      if (value != null) {
+        this.selectedTheme = value.id;
       }
     });
   }

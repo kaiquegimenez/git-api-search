@@ -17,7 +17,7 @@
       <app-theme></app-theme>
     </div>
   </div>
-  <div class="user-list" *ngIf="resultList.length > 0">
+  <div class="user-list" [ngClass]="selectedTheme === 'dark' ? 'user-list--dark' : 'user-list--light'" *ngIf="resultList.length > 0">
     <git-card [items]="resultList"></git-card>
   </div>
 </div>
