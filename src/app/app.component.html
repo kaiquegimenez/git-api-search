@@ -3,9 +3,7 @@
     <div class="type-search">
       <mat-form-field appearance="outline">
         <mat-select [(ngModel)]="typeSearch">
-          <mat-option value="name">Nome</mat-option>
-          <mat-option value="project">Projeto</mat-option>
-          <mat-option value="both">Ambos</mat-option>
+          <mat-option *ngFor="let type of types" (click)="changeTypeSearch()" [value]="type.value">{{type.name}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -16,7 +14,5 @@
       <app-theme></app-theme>
     </div>
   </div>
-  <div class="user-list" [ngClass]="selectedTheme === 'dark' ? 'user-list--dark' : 'user-list--light'" *ngIf="resultList.length > 0">
-    <git-card [items]="resultList"></git-card>
-  </div>
+  <git-card></git-card>
 </div>

@@ -4,14 +4,13 @@ import { Theme } from '../../interfaces/theme.interface'
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-    showSearchbar = false;
-    theme = new BehaviorSubject<Theme>(null);
+	theme = new BehaviorSubject<Theme>(null);
 
-    getTheme() {
-        return this.theme.asObservable();
-    }
+	getTheme() {
+		return this.theme.asObservable();
+	}
 
-    updateTheme(theme: Theme) {
-        this.theme.next(theme)
-    }
+	updateTheme(theme: Theme) {
+		this.theme.next(theme)
+	}
 }
