@@ -6,7 +6,7 @@
       <span class="title" [ngClass]="{'title--animate': showInput}">Buscar</span>
       
       <mat-icon class="search-icon" [ngClass]="{'search-icon--animate': showInput}">search</mat-icon>
-      <input [ngClass]="{'show': showInput}" class="input" autofocus name="queryText" #searchbarInput placeholder="Digite o nome" (keyup.enter)="send()" [(ngModel)]="queryText" type="text">
+      <input [ngClass]="{'show': showInput}" class="input" autofocus name="queryText" #searchbarInput placeholder="Digite o nome" (keyup)="debounce($event)" (keyup.enter)="send()" [(ngModel)]="queryText" type="text">
       <mat-icon class="close-icon" [ngClass]="{'close-icon--animate': showInput}" (click)="refresh($event)">close</mat-icon>
 
     </div>

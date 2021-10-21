@@ -6,7 +6,7 @@ const API = 'https://api.github.com/';
   providedIn: 'root'
 })
 export class GitCardService {
-  headers = new HttpHeaders().append('Authorization', "Bearer  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");
+  headers = new HttpHeaders().append('Authorization', "Bearer  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");
   constructor(private http: HttpClient) { }
 
   getUsers(userName: string, page: number) {

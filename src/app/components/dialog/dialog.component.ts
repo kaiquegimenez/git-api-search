@@ -22,6 +22,7 @@ export class DialogComponent implements OnInit {
   theme$: Observable<Theme>;
   themeSubscription: Subscription;
   selectedTheme: string;
+  resApi = false;
   
   constructor(
     private dialogService: DialogService,
@@ -55,6 +56,7 @@ export class DialogComponent implements OnInit {
   getProjects() {
     this.page++;
     this.dialogService.getProjects(this.urlProjects, this.page).subscribe((res: Repository []) => {
+      this.resApi = true;
       console.log('Aqui', res);
       if(this.page === 1) {
         this.repos = res;

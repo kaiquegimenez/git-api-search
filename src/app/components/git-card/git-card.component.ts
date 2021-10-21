@@ -65,6 +65,7 @@ export class GitCardComponent implements OnInit {
     this.typeSearchSubscription = this.typeSearch$.subscribe((value) => {
       if (value != null) {
         this.typeSearch = value;
+        this.resultList = [];
       }
     })
   }
@@ -85,7 +86,9 @@ export class GitCardComponent implements OnInit {
   getFollowers(item, index: number) {
     this.gitCardService.getFallowers(item.followers_url).subscribe((res: any) => {
       const fallowers = {'fallowers': res.length}
-      Object.assign(this.resultList[index], fallowers);
+      if(fallowers) {
+        Object.assign(this.resultList[index], fallowers);
+      }
     }, err => {
       console.log(err);
     })
@@ -100,7 +103,9 @@ export class GitCardComponent implements OnInit {
         }
       });
       languages = [...new Set(languages)];
-      Object.assign(this.resultList[index], {'language': languages.toString()});
+      if(languages) {
+        Object.assign(this.resultList[index], {'language': languages?.toString()});
+      }
     }, err => {
       console.log(err);
     })

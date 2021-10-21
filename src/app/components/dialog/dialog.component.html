@@ -18,7 +18,10 @@
     </div>
   </div>
   <h2 *ngIf="repos.length > 0" class="title">Projetos</h2>
-  <h2 *ngIf="repos.length === 0" class="title">Usuário não possui repositório!</h2>
+  <div class="align-center">
+    <h2 *ngIf="repos.length === 0 && resApi" class="title">Usuário não possui repositório!</h2>
+    <mat-spinner *ngIf="!resApi"></mat-spinner>
+  </div>
   <div *ngIf="repos.length > 0" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false" class="list">
     <div class="list__header">
       <span class="list__name">Nome</span>
